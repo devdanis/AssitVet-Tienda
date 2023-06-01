@@ -1,0 +1,33 @@
+{% extends 'tienda/base.html' %}
+
+{% block title %}AssistVet - Modificar Producto{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1>Modificar Producto</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="name" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{ product.name }}">
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Descripción</label>
+                <textarea class="form-control" id="description" name="description">{{ product.description }}</textarea>
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Precio</label>
+                <input type="number" step="0.01" class="form-control" id="price" name="price" value="{{ product.price }}">
+            </div>
+            <div class="mb-3">
+                <label for="stock" class="form-label">Stock</label>
+                <input type="number" class="form-control" id="stock" name="stock" value="{{ product.stock }}">
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Url imagen</label>
+                <input type="text" class="form-control" id="image" name="image" value="{{ product.image }}">
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        </form>
+    </div>
+{% endblock %}
